@@ -5,6 +5,7 @@
  */
 package cst8218.yijia.bouncer.service;
 
+import cst8218.yijia.bouncer.AbstractFacade;
 import cst8218.yijia.bouncer.BouncerFacade;
 import cst8218.yijia.bouncer.entity.Bouncer;
 import java.util.List;
