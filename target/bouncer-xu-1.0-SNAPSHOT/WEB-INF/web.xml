@@ -45,4 +45,16 @@
         </auth-constraint>
     </security-constraint> 
     
+    <security-constraint>
+    <display-name>RESTfulAPIConstraint</display-name>
+    <web-resource-collection>
+        <web-resource-name>RESTful API</web-resource-name>
+        <url-pattern>/faces/resources/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>RestGroup</role-name>
+        <role-name>Admin</role-name>
+    </auth-constraint>
+</security-constraint>
+
 </web-app>

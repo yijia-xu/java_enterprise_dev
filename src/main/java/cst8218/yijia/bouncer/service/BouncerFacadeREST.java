@@ -6,11 +6,11 @@
 package cst8218.yijia.bouncer.service;
 
 import cst8218.yijia.bouncer.AbstractFacade;
-import cst8218.yijia.bouncer.BouncerFacade;
 import cst8218.yijia.bouncer.entity.Bouncer;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
@@ -30,6 +30,7 @@ import javax.ws.rs.core.Response;
  * HTTP requests.
  * @author Yijia
  */
+@DeclareRoles({"Admin", "RestGroup"})
 @Stateless
 @Path("cst8218.yijia.bouncer.entity.bouncer")
 public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
@@ -47,6 +48,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
      * @return returns BAD_REQUEST if id is null; 
      *         returns CREATED for successful creation.
      */
+    @RolesAllowed({"Admin", "RestGroup"})
     @POST
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response createBouncer(Bouncer bouncer) {
@@ -84,6 +86,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
      *         returns BAD_REQUEST if the searched id is not matched;
      *         returns OK if the bouncer is successfully updated.
      */
+    @RolesAllowed({"Admin", "RestGroup"})
     @POST
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -118,6 +121,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
      *         returns BAD_REQUEST if the ids are not matched
      *         returns OK if it is successfully replaced.
      */
+    @RolesAllowed({"Admin", "RestGroup"})
     @PUT
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) 
@@ -164,13 +168,14 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
                 .build();
     }
     
-    
+    @RolesAllowed({"Admin", "RestGroup"})
     @DELETE
     @Path("{id}")
     public void remove(@PathParam("id") Long id) {
         super.remove(super.find(id));
     }
 
+    @RolesAllowed({"Admin", "RestGroup"})
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -178,6 +183,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
         return super.find(id);
     }
 
+    @RolesAllowed({"Admin", "RestGroup"})
     @GET
     @Override
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -185,6 +191,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
         return super.findAll();
     }
 
+    @RolesAllowed({"Admin", "RestGroup"})
     @GET
     @Path("{from}/{to}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -192,6 +199,7 @@ public class BouncerFacadeREST extends AbstractFacade<Bouncer> {
         return super.findRange(new int[]{from, to});
     }
 
+    @RolesAllowed({"Admin", "RestGroup"})
     @GET
     @Path("count")
     @Produces(MediaType.TEXT_PLAIN)
