@@ -28,13 +28,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Yijia
  */
 @Entity
-@Table(name = "appuser")
+@Table(name = "APPUSER")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "AppUser.findAll", query = "SELECT c FROM AppUser c"),
-    @NamedQuery(name = "AppUser.findByUserid", query = "SELECT c FROM AppUser c WHERE c.id = :id"),
-    @NamedQuery(name = "AppUser.findByPassword", query = "SELECT c FROM AppUser c WHERE c.password = :password"),
-    @NamedQuery(name = "AppUser.findByGroupname", query = "SELECT c FROM AppUser c WHERE c.groupname = :groupname")})
+    @NamedQuery(name = "AppUser.findAll", query = "SELECT a FROM AppUser a"),
+    @NamedQuery(name = "AppUser.findById", query = "SELECT a FROM AppUser a WHERE a.id = :id"),
+    @NamedQuery(name = "AppUser.findByGroupname", query = "SELECT a FROM AppUser a WHERE a.groupname = :groupname"),
+    @NamedQuery(name = "AppUser.findByPassword", query = "SELECT a FROM AppUser a WHERE a.password = :password"),
+    @NamedQuery(name = "AppUser.findByUsername", query = "SELECT a FROM AppUser a WHERE a.username = :username")})
 public class AppUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +54,10 @@ public class AppUser implements Serializable {
     @Column(name = "GROUPNAME")
     private String groupname;
 
+    @Size(max = 255)
+    @Column(name = "USERNAME")
+    private String username;
+    
     public AppUser() {
     }
 
@@ -95,6 +100,14 @@ public class AppUser implements Serializable {
         this.groupname = groupname;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -116,7 +129,7 @@ public class AppUser implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.lab4.AppUser[ id=" + id + " ]";
+        return "cst8218.yijia.bouncer.entity.AppUser[ id=" + id + " ]";
     }
 
 }

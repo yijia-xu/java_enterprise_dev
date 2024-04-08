@@ -17,8 +17,8 @@ import javax.ws.rs.core.Application;
 @Named
 @DatabaseIdentityStoreDefinition(
         dataSourceLookup = "${'java:comp/DefaultDataSource'}",
-        callerQuery = "#{'select password from app.AppUser where id = ?'}",
-        groupsQuery = "select groupname from app.AppUser where id = ?",
+        callerQuery = "#{'select password from app.AppUser where username = ?'}",
+        groupsQuery = "select groupname from app.AppUser where username = ?",
         hashAlgorithm = PasswordHash.class,
         priority = 10
 )

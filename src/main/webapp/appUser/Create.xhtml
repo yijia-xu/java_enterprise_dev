@@ -19,6 +19,8 @@
                     <h:inputText id="groupname" value="#{appUserController.selected.groupname}" title="#{bundle.CreateAppUserTitle_groupname}" />
                     <h:outputLabel value="#{bundle.CreateAppUserLabel_password}" for="password" />
                     <h:inputText id="password" value="#{appUserController.selected.password}" title="#{bundle.CreateAppUserTitle_password}" />
+                    <h:outputLabel value="#{bundle.CreateAppUserLabel_username}" for="username" />
+                    <h:inputText id="username" value="#{appUserController.selected.username}" title="#{bundle.CreateAppUserTitle_username}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{appUserController.create}" value="#{bundle.CreateAppUserSaveLink}" />
