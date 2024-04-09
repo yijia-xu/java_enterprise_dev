@@ -6,7 +6,7 @@
 package cst8218.yijia.bouncer;
 
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.bean.ApplicationScoped;
 import javax.inject.Named;
 import javax.security.enterprise.authentication.mechanism.http.BasicAuthenticationMechanismDefinition;
 import javax.security.enterprise.identitystore.DatabaseIdentityStoreDefinition;
@@ -16,8 +16,8 @@ import javax.security.enterprise.identitystore.PasswordHash;
  *
  * @author Yijia
  */
-@ApplicationScoped
 @Named
+@ApplicationScoped
 @DatabaseIdentityStoreDefinition(
         dataSourceLookup = "${'java:comp/DefaultDataSource'}",
         callerQuery = "#{'select password from app.AppUser where username = ?'}",
@@ -25,7 +25,7 @@ import javax.security.enterprise.identitystore.PasswordHash;
         hashAlgorithm = PasswordHash.class,
         priority = 10
 )
-@BasicAuthenticationMechanismDefinition
+//@BasicAuthenticationMechanismDefinition
 public class ApplicationConfig {
 
 }

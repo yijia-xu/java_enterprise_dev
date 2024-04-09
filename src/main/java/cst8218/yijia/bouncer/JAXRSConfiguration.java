@@ -13,6 +13,7 @@ import javax.ws.rs.core.Application;
  *
  * @author Juneau
  */
+/*
 @ApplicationScoped
 @Named
 @DatabaseIdentityStoreDefinition(
@@ -22,7 +23,8 @@ import javax.ws.rs.core.Application;
         hashAlgorithm = PasswordHash.class,
         priority = 10
 )
-@BasicAuthenticationMechanismDefinition
+*/
+//@BasicAuthenticationMechanismDefinition
 @ApplicationPath("resources")
 public class JAXRSConfiguration extends Application {
 

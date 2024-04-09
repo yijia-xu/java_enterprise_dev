@@ -142,7 +142,7 @@ public class Bouncer implements Serializable {
      */
     public void updateBouncer(Bouncer newBouncer) {
         if (newBouncer.getxPosition() != null) {
-            this.setyPosition(newBouncer.getxPosition());
+            this.setxPosition(newBouncer.getxPosition());
         }
         if (newBouncer.getyPosition() != null) {
             this.setyPosition(newBouncer.getyPosition());
