@@ -224,6 +224,7 @@ public class BouncerTest {
         
         existBouncer.updateBouncer(newBouncer);
         assertEquals(existBouncer.getxPosition(), newBouncer.getxPosition());
+        assertEquals(existBouncer.getyPosition(), newBouncer.getyPosition());
     }
     
 }
